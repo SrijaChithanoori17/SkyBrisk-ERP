@@ -1,0 +1,243 @@
+/* =========================================
+   SKYBRISK ERP LOGIN
+========================================= */
+
+.login-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: #f4f6fa;
+
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  color: #1f2937;
+}
+
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 36px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 40px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.login-header {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.login-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 15px;
+
+  border-radius: 15px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-size: 28px;
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.login-header h1 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 26px;
+  font-weight: 750;
+}
+
+.login-header p {
+  margin: 7px 0 0;
+
+  color: #7b8494;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.login-form-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 18px;
+}
+
+.login-form-group label {
+  margin-bottom: 7px;
+
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.login-form-group input {
+  width: 100%;
+
+  padding: 12px 13px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  box-sizing: border-box;
+
+  outline: none;
+
+  color: #1f2937;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  transition: 0.2s ease;
+}
+
+.login-form-group input::placeholder {
+  color: #94a3b8;
+}
+
+.login-form-group input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-button {
+  width: 100%;
+
+  margin-top: 5px;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.login-button:hover:not(:disabled) {
+  background: #1d4ed8;
+
+  transform: translateY(-1px);
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   REGISTER LINK
+========================================= */
+
+.register-link {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+
+  margin-top: 23px;
+
+  color: #7b8494;
+
+  font-size: 12px;
+}
+
+.register-link button {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #2563eb;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.register-link button:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 500px) {
+
+  .login-page {
+    padding: 18px;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  .login-header h1 {
+    font-size: 23px;
+  }
+}

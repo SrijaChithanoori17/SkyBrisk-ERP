@@ -1,0 +1,577 @@
+{
+  "info": {
+    "_postman_id": "18744d45-d866-446f-89b3-d32532a608c7",
+    "name": "SkyBrisk ERP API",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56899232",
+    "_collection_link": "https://go.postman.co/collection/56899232-18744d45-d866-446f-89b3-d32532a608c7?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "postman-echo.com/get",
+          "host": [
+            "postman-echo",
+            "com"
+          ],
+          "path": [
+            "get"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Post data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "postman-echo.com/post",
+          "host": [
+            "postman-echo",
+            "com"
+          ],
+          "path": [
+            "post"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Register - Admin",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Srija\",\r\n  \"email\": \"Srija.ch@gmail.com\",\r\n  \"password\": \"srija123\",\r\n  \"role\": \"ADMIN\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login - Admin",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\": \"Srija.ch@gmail.com\",\r\n  \"password\": \"srija123\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/reports/summary",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/reports/summary?from=2026-09-01&to=2026-09-28",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "reports",
+            "summary"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "2026-09-01"
+            },
+            {
+              "key": "to",
+              "value": "2026-09-28"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register - Sales Executive",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Sales Executive\",\r\n  \"email\": \"salesexecutive@gmail.com\",\r\n  \"password\": \"Sales@123\",\r\n  \"role\": \"SALES_EXECUTIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login - Sales Executive",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"salesexecutive@gmail.com\",\r\n  \"password\": \"Sales@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/products",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register - Purchase Manager",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Purchase Manager\",\r\n  \"email\": \"purchasemanager@gmail.com\",\r\n  \"password\": \"Purchase@123\",\r\n  \"role\": \"PURCHASE_MANAGER\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login - Purchase Manager",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"purchasemanager@gmail.com\",\r\n  \"password\": \"Purchase@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/sales-orders",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/sales-orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sales-orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register - Inventory Manager",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Inventory Manager\",\r\n  \"email\": \"inventorymanager@gmail.com\",\r\n  \"password\": \"Inventory@123\",\r\n  \"role\": \"INVENTORY_MANAGER\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login - Inventory Manager",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"inventorymanager@gmail.com\",\r\n  \"password\": \"Inventory@123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/purchase-orders",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/purchase-orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "purchase-orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register - Accountant",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Accountant\",\r\n  \"email\": \"accountant@gmail.com\",\r\n  \"password\": \"Accountant@123\",\r\n  \"role\": \"ACCOUNTANT\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login - Accountant",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\": \"accountant@gmail.com\",\r\n  \"password\": \"Accountant@123\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/sales-orders",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/sales-orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sales-orders"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
