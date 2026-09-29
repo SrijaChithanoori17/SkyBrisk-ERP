@@ -461,5 +461,5 @@ Java + Spring Boot + MySQL + React
 Repository:
 
 ```text
-<your-github-repository-url>
+https://github.com/SrijaChithanoori17/SkyBrisk-ERP
 ```
